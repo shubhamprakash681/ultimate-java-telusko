@@ -10,7 +10,8 @@
     <!-- scope="singleton" -> Only one object is created -->
     <!-- <bean class="in.shubhamprakash681.Laptop" scope="singleton" /> -->
 
-    <!-- scope="prototype" -> Only one object is created -->
+    <!-- scope="prototype" -> new, independent instance of a bean is created every time it is
+    requested from the container -->
     <bean class="in.shubhamprakash681.Laptop" scope="prototype" />
 
     <bean class="in.shubhamprakash681.Alien">

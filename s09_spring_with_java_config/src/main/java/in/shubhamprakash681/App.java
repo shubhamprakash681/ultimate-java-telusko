@@ -1,11 +1,13 @@
 package in.shubhamprakash681;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.beans.BeansException;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import in.shubhamprakash681.config.AppConfig;
 
 public class App {
     public static void main(String[] args) {
-        try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("appContext.xml")) {
-
+        try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class)) {
             // // "alien" -> id of Alien bean in appContext.xml
             // Alien al1 = (Alien) context.getBean("alien1");
             // al1.code();
@@ -28,9 +30,8 @@ public class App {
 
             Employee emp = context.getBean(Employee.class);
             emp.code();
-
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (BeansException e) {
+            e.printStackTrace();
         }
     }
 }
